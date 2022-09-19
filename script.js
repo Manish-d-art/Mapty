@@ -23,6 +23,9 @@ if(navigator.geolocation){
         L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
+        map.on('click',function(mapEvent){
+            const {lat,lng}=mapEvent.latlng;
+        })
         
         L.marker(coords)
             .addTo(map)
