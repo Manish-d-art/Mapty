@@ -36,7 +36,8 @@ if(navigator.geolocation){
     });
 }
 
-form.addEventListener('submit',function(){
+form.addEventListener('submit',function(e){
+    e.preventDefault();
     const {lat,lng}=mapEvent.latlng;
                 L.marker([lat,lng])
                 .addTo(map)
