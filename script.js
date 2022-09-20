@@ -39,6 +39,8 @@ if(navigator.geolocation){
 
 form.addEventListener('submit',function(e){
     e.preventDefault();
+    inputDistance.value=inputCadence.value=inputDuration.value=inputElevation.value='';
+
     const {lat,lng}=mapEvent.latlng;
                 L.marker([lat,lng])
                 .addTo(map)
