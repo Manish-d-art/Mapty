@@ -12,6 +12,28 @@ const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
 let map,mapEvent;
 
+class App{
+
+    constructor(){
+
+    }
+
+    _getPosition(){
+
+    }
+
+    _showForm(){
+
+    }
+
+    _toggleElevationField(){
+
+    }
+
+    _newWorkOut(){
+        
+    }
+}
 
 if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(function(position){
@@ -25,6 +47,7 @@ if(navigator.geolocation){
         L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
+
         map.on('click',function(mapE){
             mapEvent=mapE;
             form.classList.remove('hidden');
