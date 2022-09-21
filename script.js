@@ -109,6 +109,8 @@ class App {
 
     const validInputs= (...inputs) =>
     inputs.every(inp=>isFinite(inp));
+
+    const allPositive= (...inputs) => inputs.every(inp => inp >0);
     
     //get data fom form
     const type=inputType.value;
@@ -116,18 +118,24 @@ class App {
     const duration= +inputDuration.value;
 
     //if workout running, create running object
-    if(type=='running'){
+    if(type==='running'){
         const cadence= +inputCadence.value;
         //check if data is valid
-        if(!validInputs(distance,duration,cadence)){
+        if(!validInputs(distance,duration,cadence) || !allPositive(distance,duration,cadence)){
             return alert('Inputs have to be positive numbers!');
         }
     }
-   
-    
+
 
     //if workout cycling, create cycling object
-
+    if(type==='cycling'){
+            const elevation= +inputElevation.value;
+            //check if data is valid
+            if(!validInputs(distance,duration,elevation) || !allPositive(distance,duration)){
+                return alert('Inputs have to be positive numbers!');
+            }
+        }
+   
     //add new object to workout array
 
     //Render workout on map as marker
