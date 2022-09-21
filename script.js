@@ -107,6 +107,9 @@ class App {
   _newWorkOut(e) {
     e.preventDefault();
 
+    const validInputs= (...inputs) =>
+    inputs.every(inp=>isFinite(inp));
+    
     //get data fom form
     const type=inputType.value;
     const distance= +inputDistance.value;
@@ -116,7 +119,7 @@ class App {
     if(type=='running'){
         const cadence= +inputCadence.value;
         //check if data is valid
-        if(!Number.isFinite(distance) && !Number.isFinite(duration) && !Number.isFinite(cadence)){
+        if(!validInputs(distance,duration,cadence)){
             return alert('Inputs have to be positive numbers!');
         }
     }
