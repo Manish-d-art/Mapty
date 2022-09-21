@@ -22,6 +22,12 @@ class workOut{
     }
 }
 
+class Running extends workOut{
+    constructor(coords,distance,duration,cadence){
+        super(coords,distance,duration);
+    }
+}
+
 
 class App {
   #map;
