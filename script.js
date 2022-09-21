@@ -18,6 +18,13 @@ class App{
     constructor(){
         this._getPosition();
 
+        form.addEventListener('submit',this._newWorkout.bind(this));
+      
+        inputType.addEventListener('change',function(){
+            inputCadence.closest('.form__row').classList.toggle('form__row--hidden');
+            inputElevation.closest('.form__row').classList.toggle('form__row--hidden');
+        })
+
     }
 
     _getPosition(){
@@ -58,36 +65,27 @@ class App{
 
     }
 
-    _newWorkOut(){
+    _newWorkOut(e){
+        e.preventDefault();
+        inputDistance.value=inputCadence.value=inputDuration.value=inputElevation.value='';
 
+        const {lat,lng}=mapEvent.latlng;
+                    L.marker([lat,lng])
+                    .addTo(this.#map)
+                    .bindPopup(
+                        L.popup({
+                            maxWidth:250,
+                            minWidth:100,
+                            autoClose:false,
+                            closeOnClick:false,
+                            className:'running-popup',
+                        })
+                    )
+                    .setPopupContent('Workout')
+                    .openPopup();
     }
 }
 
 //object of class
 const app=new App();
 
-
-form.addEventListener('submit',function(e){
-    e.preventDefault();
-    inputDistance.value=inputCadence.value=inputDuration.value=inputElevation.value='';
-
-    const {lat,lng}=mapEvent.latlng;
-                L.marker([lat,lng])
-                .addTo(map)
-                .bindPopup(
-                    L.popup({
-                        maxWidth:250,
-                        minWidth:100,
-                        autoClose:false,
-                        closeOnClick:false,
-                        className:'running-popup',
-                    })
-                )
-                .setPopupContent('Workout')
-                .openPopup();
-});
-
-inputType.addEventListener('change',function(){
-    inputCadence.closest('.form__row').classList.toggle('form__row--hidden');
-    inputElevation.closest('.form__row').classList.toggle('form__row--hidden');
-})
