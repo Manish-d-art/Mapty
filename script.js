@@ -108,6 +108,9 @@ class App {
     e.preventDefault();
 
     //get data fom form
+    const type=inputType.value;
+    const distance= +inputDistance.value;
+    const duration= +inputDuration.value;
 
     //check if data is valid
 
