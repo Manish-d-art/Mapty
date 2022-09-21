@@ -26,6 +26,12 @@ class Running extends workOut{
     constructor(coords,distance,duration,cadence){
         super(coords,distance,duration);
         this.cadence=cadence;
+        this.calcPace();
+    }
+
+    calcPace(){
+        this.pace=this.duration/this.distance;
+        return this.pace;
     }
 }
 
