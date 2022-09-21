@@ -40,6 +40,11 @@ class Cycling extends workOut{
         super(coords,distance,duration);
         this.cadence=cadence;
     }
+
+    calcSpeed(){
+        this.speed=this.distance/this.duration/60;
+        return this.speed;
+    }
 }
 
 
