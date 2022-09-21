@@ -3,13 +3,7 @@
 // prettier-ignore
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-const form = document.querySelector('.form');
-const containerWorkouts = document.querySelector('.workouts');
-const inputType = document.querySelector('.form__input--type');
-const inputDistance = document.querySelector('.form__input--distance');
-const inputDuration = document.querySelector('.form__input--duration');
-const inputCadence = document.querySelector('.form__input--cadence');
-const inputElevation = document.querySelector('.form__input--elevation');
+
 
 class workOut{
     date=new Date();
@@ -53,6 +47,16 @@ class Cycling extends workOut{
 
 
 //////////////////////////////
+
+//Application Architecture
+const form = document.querySelector('.form');
+const containerWorkouts = document.querySelector('.workouts');
+const inputType = document.querySelector('.form__input--type');
+const inputDistance = document.querySelector('.form__input--distance');
+const inputDuration = document.querySelector('.form__input--duration');
+const inputCadence = document.querySelector('.form__input--cadence');
+const inputElevation = document.querySelector('.form__input--elevation');
+
 class App {
   #map;
   #mapEvent;
@@ -102,12 +106,18 @@ class App {
 
   _newWorkOut(e) {
     e.preventDefault();
-    inputDistance.value =
-      inputCadence.value =
-      inputDuration.value =
-      inputElevation.value =
-        '';
 
+    //get data fom form
+
+    //check if data is valid
+
+    //if workout running, create running object
+    
+    //if workout cycling, create cycling object
+
+    //add new object to workout array
+
+    //Render workout on map as marker
     const { lat, lng } = this.#mapEvent.latlng;
     console.log(lat, lng);
     L.marker([lat, lng])
@@ -123,6 +133,17 @@ class App {
       )
       .setPopupContent('Workout')
       .openPopup();
+    //Render workout on list
+
+    //hide form + clear input fields
+
+    inputDistance.value =
+      inputCadence.value =
+      inputDuration.value =
+      inputElevation.value =
+        '';
+
+   
   }
 }
 
